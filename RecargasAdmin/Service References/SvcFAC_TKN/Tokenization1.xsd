@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.firstatlanticcommerce.com/gateway" elementFormDefault="qualified" targetNamespace="http://schemas.firstatlanticcommerce.com/gateway" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://ecm.firstatlanticcommerce.com/PGService/Tokenization.svc?xsd=xsd2" namespace="http://schemas.firstatlanticcommerce.com/gateway/data" />
+  <xs:element name="Tokenize">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.firstatlanticcommerce.com/gateway/data" minOccurs="0" name="Request" nillable="true" type="q1:TokenizeRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TokenizeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.firstatlanticcommerce.com/gateway/data" minOccurs="0" name="TokenizeResult" nillable="true" type="q2:TokenizeResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeTokenize">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.firstatlanticcommerce.com/gateway/data" minOccurs="0" name="Request" nillable="true" type="q3:DeTokenizeRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeTokenizeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.firstatlanticcommerce.com/gateway/data" minOccurs="0" name="DeTokenizeResult" nillable="true" type="q4:DeTokenizeResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TokenList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.firstatlanticcommerce.com/gateway/data" minOccurs="0" name="Request" nillable="true" type="q5:TokenListRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TokenListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.firstatlanticcommerce.com/gateway/data" minOccurs="0" name="TokenListResult" nillable="true" type="q6:TokenListResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateToken">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.firstatlanticcommerce.com/gateway/data" minOccurs="0" name="Request" nillable="true" type="q7:UpdateTokenRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTokenResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.firstatlanticcommerce.com/gateway/data" minOccurs="0" name="UpdateTokenResult" nillable="true" type="q8:UpdateTokenResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExpiringCreditCards">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.firstatlanticcommerce.com/gateway/data" minOccurs="0" name="Request" nillable="true" type="q9:ExpiringCreditCardsRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExpiringCreditCardsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.firstatlanticcommerce.com/gateway/data" minOccurs="0" name="ExpiringCreditCardsResult" nillable="true" type="q10:ExpiringCreditCardsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

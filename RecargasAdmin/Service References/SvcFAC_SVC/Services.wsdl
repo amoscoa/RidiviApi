@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://schemas.firstatlanticcommerce.com/gateway" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Services" targetNamespace="http://schemas.firstatlanticcommerce.com/gateway" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="BasicHttpBinding_IServices_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://schemas.firstatlanticcommerce.com/gateway/Imports">
+      <xsd:import schemaLocation="https://ecm.firstatlanticcommerce.com/PGService/Services.svc?xsd=xsd0" namespace="http://schemas.firstatlanticcommerce.com/gateway" />
+      <xsd:import schemaLocation="https://ecm.firstatlanticcommerce.com/PGService/Services.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://ecm.firstatlanticcommerce.com/PGService/Services.svc?xsd=xsd2" namespace="http://schemas.firstatlanticcommerce.com/gateway/data" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IServices_Authorize_InputMessage">
+    <wsdl:part name="parameters" element="tns:Authorize" />
+  </wsdl:message>
+  <wsdl:message name="IServices_Authorize_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AuthorizeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServices_TransactionModification_InputMessage">
+    <wsdl:part name="parameters" element="tns:TransactionModification" />
+  </wsdl:message>
+  <wsdl:message name="IServices_TransactionModification_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TransactionModificationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServices_Authorize3DS_InputMessage">
+    <wsdl:part name="parameters" element="tns:Authorize3DS" />
+  </wsdl:message>
+  <wsdl:message name="IServices_Authorize3DS_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Authorize3DSResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServices_IPGeoLocation_InputMessage">
+    <wsdl:part name="parameters" element="tns:IPGeoLocation" />
+  </wsdl:message>
+  <wsdl:message name="IServices_IPGeoLocation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IPGeoLocationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServices_TransactionStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:TransactionStatus" />
+  </wsdl:message>
+  <wsdl:message name="IServices_TransactionStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TransactionStatusResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IServices">
+    <wsdl:operation name="Authorize">
+      <wsdl:input wsaw:Action="http://schemas.firstatlanticcommerce.com/gateway/IServices/Authorize" message="tns:IServices_Authorize_InputMessage" />
+      <wsdl:output wsaw:Action="http://schemas.firstatlanticcommerce.com/gateway/IServices/AuthorizeResponse" message="tns:IServices_Authorize_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TransactionModification">
+      <wsdl:input wsaw:Action="http://schemas.firstatlanticcommerce.com/gateway/IServices/TransactionModification" message="tns:IServices_TransactionModification_InputMessage" />
+      <wsdl:output wsaw:Action="http://schemas.firstatlanticcommerce.com/gateway/IServices/TransactionModificationResponse" message="tns:IServices_TransactionModification_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Authorize3DS">
+      <wsdl:input wsaw:Action="http://schemas.firstatlanticcommerce.com/gateway/IServices/Authorize3DS" message="tns:IServices_Authorize3DS_InputMessage" />
+      <wsdl:output wsaw:Action="http://schemas.firstatlanticcommerce.com/gateway/IServices/Authorize3DSResponse" message="tns:IServices_Authorize3DS_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IPGeoLocation">
+      <wsdl:input wsaw:Action="http://schemas.firstatlanticcommerce.com/gateway/IServices/IPGeoLocation" message="tns:IServices_IPGeoLocation_InputMessage" />
+      <wsdl:output wsaw:Action="http://schemas.firstatlanticcommerce.com/gateway/IServices/IPGeoLocationResponse" message="tns:IServices_IPGeoLocation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TransactionStatus">
+      <wsdl:input wsaw:Action="http://schemas.firstatlanticcommerce.com/gateway/IServices/TransactionStatus" message="tns:IServices_TransactionStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://schemas.firstatlanticcommerce.com/gateway/IServices/TransactionStatusResponse" message="tns:IServices_TransactionStatus_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IServices" type="tns:IServices">
+    <wsp:PolicyReference URI="#BasicHttpBinding_IServices_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Authorize">
+      <soap:operation soapAction="http://schemas.firstatlanticcommerce.com/gateway/IServices/Authorize" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TransactionModification">
+      <soap:operation soapAction="http://schemas.firstatlanticcommerce.com/gateway/IServices/TransactionModification" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Authorize3DS">
+      <soap:operation soapAction="http://schemas.firstatlanticcommerce.com/gateway/IServices/Authorize3DS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IPGeoLocation">
+      <soap:operation soapAction="http://schemas.firstatlanticcommerce.com/gateway/IServices/IPGeoLocation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TransactionStatus">
+      <soap:operation soapAction="http://schemas.firstatlanticcommerce.com/gateway/IServices/TransactionStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Services">
+    <wsdl:port name="BasicHttpBinding_IServices" binding="tns:BasicHttpBinding_IServices">
+      <soap:address location="https://ecm.firstatlanticcommerce.com/PGService/Services.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

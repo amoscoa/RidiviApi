@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="ff2684fb-93a2-43a7-b49d-dcf122fd60fb" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="https://ecm.firstatlanticcommerce.com/PGService/Services.svc?WSDL" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Services.xsd" MetadataType="Schema" ID="3db7d892-8f0a-4031-adf2-fe36040ba8dd" SourceId="1" SourceUrl="https://ecm.firstatlanticcommerce.com/PGService/Services.svc?xsd=xsd2" />
+    <MetadataFile FileName="Services1.xsd" MetadataType="Schema" ID="4d582d20-34e5-4856-b675-33335e16be48" SourceId="1" SourceUrl="https://ecm.firstatlanticcommerce.com/PGService/Services.svc?xsd=xsd1" />
+    <MetadataFile FileName="Services2.xsd" MetadataType="Schema" ID="e8469e1c-80f6-4483-a6ef-fd486f0ac008" SourceId="1" SourceUrl="https://ecm.firstatlanticcommerce.com/PGService/Services.svc?xsd=xsd0" />
+    <MetadataFile FileName="Services.wsdl" MetadataType="Wsdl" ID="427e8d58-aec7-4949-8f47-b887862a55cf" SourceId="1" SourceUrl="https://ecm.firstatlanticcommerce.com/PGService/Services.svc?WSDL" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

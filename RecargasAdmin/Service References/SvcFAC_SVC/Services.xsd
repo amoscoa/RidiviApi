@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.firstatlanticcommerce.com/gateway/data" elementFormDefault="qualified" targetNamespace="http://schemas.firstatlanticcommerce.com/gateway/data" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="AuthorizeRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BillingDetails" nillable="true" type="tns:BillingDetails" />
+      <xs:element name="CardDetails" nillable="true" type="tns:CardDetails" />
+      <xs:element minOccurs="0" name="RecurringDetails" nillable="true" type="tns:RecurringDetails" />
+      <xs:element minOccurs="0" name="ThreeDSecureDetails" nillable="true" type="tns:ThreeDSecureDetails" />
+      <xs:element name="TransactionDetails" nillable="true" type="tns:TransactionDetails" />
+      <xs:element minOccurs="0" name="ShippingDetails" nillable="true" type="tns:ShippingDetails" />
+      <xs:element minOccurs="0" name="FraudDetails" nillable="true" type="tns:FraudDetails" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AuthorizeRequest" nillable="true" type="tns:AuthorizeRequest" />
+  <xs:complexType name="BillingDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BillToAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BillToAddress2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BillToCity" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BillToCountry" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BillToEmail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BillToFirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BillToLastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BillToState" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BillToTelephone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BillToZipPostCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BillToCounty" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BillToMobile" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BillingDetails" nillable="true" type="tns:BillingDetails" />
+  <xs:complexType name="CardDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CardCVV2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CardExpiryDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CardNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IssueNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StartDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DocumentNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Installments" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CardDetails" nillable="true" type="tns:CardDetails" />
+  <xs:complexType name="RecurringDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ExecutionDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Frequency" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsRecurring" type="xs:boolean" />
+      <xs:element minOccurs="0" name="NumberOfRecurrences" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RecurringDetails" nillable="true" type="tns:RecurringDetails" />
+  <xs:complexType name="ThreeDSecureDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AuthenticationResult" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CAVV" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ECIIndicator" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TransactionStain" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ThreeDSecureDetails" nillable="true" type="tns:ThreeDSecureDetails" />
+  <xs:complexType name="TransactionDetails">
+    <xs:sequence>
+      <xs:element name="AcquirerId" nillable="true" type="xs:string" />
+      <xs:element name="Amount" nillable="true" type="xs:string" />
+      <xs:element name="Currency" nillable="true" type="xs:string" />
+      <xs:element name="CurrencyExponent" type="xs:int" />
+      <xs:element minOccurs="0" name="CustomData" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IPAddress" nillable="true" type="xs:string" />
+      <xs:element name="MerchantId" nillable="true" type="xs:string" />
+      <xs:element name="OrderNumber" nillable="true" type="xs:string" />
+      <xs:element name="Signature" nillable="true" type="xs:string" />
+      <xs:element name="SignatureMethod" nillable="true" type="xs:string" />
+      <xs:element name="TransactionCode" type="xs:int" />
+      <xs:element minOccurs="0" name="CustomerReference" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TransactionDetails" nillable="true" type="tns:TransactionDetails" />
+  <xs:complexType name="ShippingDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ShipToAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ShipToAddress2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ShipToCity" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ShipToCountry" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ShipToCounty" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ShipToEmail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ShipToFirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ShipToLastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ShipToMobile" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ShipToState" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ShipToTelephone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ShipToZipPostCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ShippingDetails" nillable="true" type="tns:ShippingDetails" />
+  <xs:complexType name="FraudDetails">
+    <xs:sequence>
+      <xs:element name="AVSResponseCode" nillable="true" type="xs:string" />
+      <xs:element name="AuthResponseCode" nillable="true" type="xs:string" />
+      <xs:element name="CVVResponseCode" nillable="true" type="xs:string" />
+      <xs:element name="SessionId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FraudDetails" nillable="true" type="tns:FraudDetails" />
+  <xs:complexType name="AuthorizeResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AcquirerId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BillingDetails" nillable="true" type="tns:BillingDetails" />
+      <xs:element minOccurs="0" name="CreditCardTransactionResults" nillable="true" type="tns:CreditCardTransactionResults" />
+      <xs:element minOccurs="0" name="CustomData" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IPGeoLocationResults" nillable="true" type="tns:IPGeoLocationResults" />
+      <xs:element minOccurs="0" name="MerchantId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrderNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Signature" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SignatureMethod" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BinCheckResults" nillable="true" type="tns:BinCheckResults" />
+      <xs:element minOccurs="0" name="FraudControlResults" nillable="true" type="tns:FraudControlResults" />
+      <xs:element minOccurs="0" name="ShippingDetails" nillable="true" type="tns:ShippingDetails" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AuthorizeResponse" nillable="true" type="tns:AuthorizeResponse" />
+  <xs:complexType name="CreditCardTransactionResults">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AVSResult" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AuthCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CVV2Result" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OriginalResponseCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PaddedCardNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReasonCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReasonCodeDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReferenceNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ResponseCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TokenizedPAN" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CreditCardTransactionResults" nillable="true" type="tns:CreditCardTransactionResults" />
+  <xs:complexType name="IPGeoLocationResults">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CountryLong" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CountryShort" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DomainName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IPAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IPResponseCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IPResponseCodeDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ISP" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Latitude" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Longitude" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Region" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TimeZone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ZipCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="IPGeoLocationResults" nillable="true" type="tns:IPGeoLocationResults" />
+  <xs:complexType name="BinCheckResults">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BIN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Brand" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Country" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Issuer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Subtype" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BinCheckResults" nillable="true" type="tns:BinCheckResults" />
+  <xs:complexType name="FraudControlResults">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FraudControlId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FraudResponseCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReasonCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReasonCodeDesc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ResponseCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Score" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FraudControlResults" nillable="true" type="tns:FraudControlResults" />
+  <xs:complexType name="TransactionModificationRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AcquirerId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Amount" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CurrencyExponent" type="xs:int" />
+      <xs:element minOccurs="0" name="MerchantId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ModificationType" type="xs:int" />
+      <xs:element minOccurs="0" name="OrderNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TransactionModificationRequest" nillable="true" type="tns:TransactionModificationRequest" />
+  <xs:complexType name="TransactionModificationResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AcquirerId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MerchantId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrderNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OriginalResponseCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReasonCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReasonCodeDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ResponseCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TransactionModificationResponse" nillable="true" type="tns:TransactionModificationResponse" />
+  <xs:complexType name="Authorize3DSRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BillingDetails" nillable="true" type="tns:BillingDetails" />
+      <xs:element minOccurs="0" name="CardDetails" nillable="true" type="tns:CardDetails" />
+      <xs:element minOccurs="0" name="MerchantResponseURL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TransactionDetails" nillable="true" type="tns:TransactionDetails" />
+      <xs:element minOccurs="0" name="RecurringDetails" nillable="true" type="tns:RecurringDetails" />
+      <xs:element minOccurs="0" name="FraudDetails" nillable="true" type="tns:FraudDetails" />
+      <xs:element minOccurs="0" name="ShippingDetails" nillable="true" type="tns:ShippingDetails" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Authorize3DSRequest" nillable="true" type="tns:Authorize3DSRequest" />
+  <xs:complexType name="Authorize3DSResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="HTMLFormData" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ResponseCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ResponseCodeDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TokenizedPAN" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Authorize3DSResponse" nillable="true" type="tns:Authorize3DSResponse" />
+  <xs:complexType name="IPGeoLocationRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IPAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MerchantId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrderNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="IPGeoLocationRequest" nillable="true" type="tns:IPGeoLocationRequest" />
+  <xs:complexType name="IPGeoLocationResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IPGeoLocationDetails" nillable="true" type="tns:IPGeoLocationResults" />
+      <xs:element minOccurs="0" name="MerchantId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrderNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Signature" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SignatureMethod" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="IPGeoLocationResponse" nillable="true" type="tns:IPGeoLocationResponse" />
+  <xs:complexType name="TransactionStatusRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AcquirerId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MerchantId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrderNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TransactionStatusRequest" nillable="true" type="tns:TransactionStatusRequest" />
+  <xs:complexType name="TransactionStatusResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AcquirerId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreditCardTransactionResults" nillable="true" type="tns:CreditCardTransactionResults" />
+      <xs:element minOccurs="0" name="CustomData" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MerchantId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrderNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Signature" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SignatureMethod" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TransactionStatusResponse" nillable="true" type="tns:TransactionStatusResponse" />
+</xs:schema>

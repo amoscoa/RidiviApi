@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://schemas.firstatlanticcommerce.com/gateway" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Tokenization" targetNamespace="http://schemas.firstatlanticcommerce.com/gateway" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="BasicHttpBinding_Tokenization_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://schemas.firstatlanticcommerce.com/gateway/Imports">
+      <xsd:import schemaLocation="https://ecm.firstatlanticcommerce.com/PGService/Tokenization.svc?xsd=xsd0" namespace="http://schemas.firstatlanticcommerce.com/gateway" />
+      <xsd:import schemaLocation="https://ecm.firstatlanticcommerce.com/PGService/Tokenization.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://ecm.firstatlanticcommerce.com/PGService/Tokenization.svc?xsd=xsd2" namespace="http://schemas.firstatlanticcommerce.com/gateway/data" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="Tokenization_Tokenize_InputMessage">
+    <wsdl:part name="parameters" element="tns:Tokenize" />
+  </wsdl:message>
+  <wsdl:message name="Tokenization_Tokenize_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TokenizeResponse" />
+  </wsdl:message>
+  <wsdl:message name="Tokenization_DeTokenize_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeTokenize" />
+  </wsdl:message>
+  <wsdl:message name="Tokenization_DeTokenize_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeTokenizeResponse" />
+  </wsdl:message>
+  <wsdl:message name="Tokenization_TokenList_InputMessage">
+    <wsdl:part name="parameters" element="tns:TokenList" />
+  </wsdl:message>
+  <wsdl:message name="Tokenization_TokenList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TokenListResponse" />
+  </wsdl:message>
+  <wsdl:message name="Tokenization_UpdateToken_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateToken" />
+  </wsdl:message>
+  <wsdl:message name="Tokenization_UpdateToken_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTokenResponse" />
+  </wsdl:message>
+  <wsdl:message name="Tokenization_ExpiringCreditCards_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExpiringCreditCards" />
+  </wsdl:message>
+  <wsdl:message name="Tokenization_ExpiringCreditCards_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExpiringCreditCardsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="Tokenization">
+    <wsdl:operation name="Tokenize">
+      <wsdl:input wsaw:Action="http://schemas.firstatlanticcommerce.com/gateway/Tokenization/Tokenize" message="tns:Tokenization_Tokenize_InputMessage" />
+      <wsdl:output wsaw:Action="http://schemas.firstatlanticcommerce.com/gateway/Tokenization/TokenizeResponse" message="tns:Tokenization_Tokenize_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeTokenize">
+      <wsdl:input wsaw:Action="http://schemas.firstatlanticcommerce.com/gateway/Tokenization/DeTokenize" message="tns:Tokenization_DeTokenize_InputMessage" />
+      <wsdl:output wsaw:Action="http://schemas.firstatlanticcommerce.com/gateway/Tokenization/DeTokenizeResponse" message="tns:Tokenization_DeTokenize_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TokenList">
+      <wsdl:input wsaw:Action="http://schemas.firstatlanticcommerce.com/gateway/Tokenization/TokenList" message="tns:Tokenization_TokenList_InputMessage" />
+      <wsdl:output wsaw:Action="http://schemas.firstatlanticcommerce.com/gateway/Tokenization/TokenListResponse" message="tns:Tokenization_TokenList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateToken">
+      <wsdl:input wsaw:Action="http://schemas.firstatlanticcommerce.com/gateway/Tokenization/UpdateToken" message="tns:Tokenization_UpdateToken_InputMessage" />
+      <wsdl:output wsaw:Action="http://schemas.firstatlanticcommerce.com/gateway/Tokenization/UpdateTokenResponse" message="tns:Tokenization_UpdateToken_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExpiringCreditCards">
+      <wsdl:input wsaw:Action="http://schemas.firstatlanticcommerce.com/gateway/Tokenization/ExpiringCreditCards" message="tns:Tokenization_ExpiringCreditCards_InputMessage" />
+      <wsdl:output wsaw:Action="http://schemas.firstatlanticcommerce.com/gateway/Tokenization/ExpiringCreditCardsResponse" message="tns:Tokenization_ExpiringCreditCards_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_Tokenization" type="tns:Tokenization">
+    <wsp:PolicyReference URI="#BasicHttpBinding_Tokenization_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Tokenize">
+      <soap:operation soapAction="http://schemas.firstatlanticcommerce.com/gateway/Tokenization/Tokenize" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeTokenize">
+      <soap:operation soapAction="http://schemas.firstatlanticcommerce.com/gateway/Tokenization/DeTokenize" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TokenList">
+      <soap:operation soapAction="http://schemas.firstatlanticcommerce.com/gateway/Tokenization/TokenList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateToken">
+      <soap:operation soapAction="http://schemas.firstatlanticcommerce.com/gateway/Tokenization/UpdateToken" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExpiringCreditCards">
+      <soap:operation soapAction="http://schemas.firstatlanticcommerce.com/gateway/Tokenization/ExpiringCreditCards" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Tokenization">
+    <wsdl:port name="BasicHttpBinding_Tokenization" binding="tns:BasicHttpBinding_Tokenization">
+      <soap:address location="https://ecm.firstatlanticcommerce.com/PGService/Tokenization.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
