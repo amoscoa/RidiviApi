@@ -21,16 +21,16 @@ namespace RidiviApi.Controllers
             this.ObtenerDatosCuentaRepository = new obtenerdatoscuentaRepository();
         }
 
-        public HttpResponseMessage Post(string idCliente, string iban)
+        public HttpResponseMessage Post(ibanData ib)
         {
-            clienteData resp = obtenerdatoscuentaRepository.PostObtenerDatosCuenta(idCliente, iban);
+            clienteData resp = obtenerdatoscuentaRepository.PostObtenerDatosCuenta(ib.idCliente, ib.iban);
 
             var respHttp = new HttpResponseMessage
             {
                 Content =
                     new StringContent(
                     "{\"idnumber\":\"" + resp.account.idNumber +
-                    "\",\"moneda\":\"" + resp.account.ToString() +
+                    "\",\"moneda\":\"" + resp.account.CodigoMoneda +
                     "\",\"nombre\":\"" + resp.account.NomPropietario +
                     "\",\"error\":\"" + resp.error +
                     "\",\"mensaje\":\"" + resp.message +

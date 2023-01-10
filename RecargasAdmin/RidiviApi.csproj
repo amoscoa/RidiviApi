@@ -156,6 +156,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ibanData.cs" />
     <Compile Include="Models\clienteData.cs" />
     <Compile Include="Models\confirmaRidivi.cs" />
     <Compile Include="Models\notificaRidivi.cs" />
